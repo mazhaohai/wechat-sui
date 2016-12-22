@@ -37,7 +37,7 @@
 		//tplur模板的url地址
 		//callback回调
 		function _compileHtml(container,tplurl,callback){
-			if($scope.vm.tplcache.indexOf(tplurl)>-1){
+			if($scope.vm.tplcache.indexOf(tplurl)>-1||tplurl == ''){
 				callback(true);
 			}else{
 				require(['text!' + globalConfig.viewsPath + tplurl],function(html){
@@ -52,14 +52,14 @@
 		function init(){
 			//必须先执行
 			smInit();
-			_goPage("#firstpage",'check/tpl1.html');
+			_goPage("#firstpage",'');
 		}
 		init();
 		//拦截sm框架back和load函数
 		function smInit(){
 			//自定义控制参数
 			var CONFIG={
-				noAniPage:'blankpage',
+				noAniPage:'blankpage',//$from.attr('id')='blankpage',即首次进入，不进行动画切换效果
 				isBack:false//判断是否为back状态，采用不同的切换效果	
 			};
 			/*捕获返回按钮事件*/

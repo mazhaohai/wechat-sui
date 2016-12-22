@@ -14,9 +14,25 @@
 	<body ng-controller="CheckCtrl">
 		<div class="page-group">
 			<div class="page page-current" id="blankpage">
-				<!--这个page存在的目的是为了能够回退时捕获back事件，否则不能捕获，第一个业务逻辑页面后退不能关闭-->
+				<!--这个page存在的目的是为了能够回退时捕获back事件，否则不能捕获，第一个业务逻辑页面后退不能关闭
+				    同时这个页面设置为page-current，第一个业务逻辑页面也是为page-current，并且模板文件不动态加载，
+					这样可以避免页面闪烁
+				-->
 			</div>
 			<div class="page page-current" id="firstpage">
+				<div>
+					<header class="bar bar-nav">
+						<h1 class="title">我是第一页</h1>
+					</header>
+					<div class="content">
+						<h1 ng-bind="vm.title1"></h1>
+						<div my-dire></div>
+						<div class="content-block">
+							<p><a ng-click="goPage('#secondpage','check/tpl2.html')" class="button button-fill">跳转第二页</a></p>
+						</div>
+
+					</div>
+				</div>
 			</div>
 			<div class="page" id='secondpage'>
 			</div>
