@@ -1,0 +1,12 @@
+<div>
+    <header class="bar bar-nav">
+        <h1 class="title">我是第三页</h1>
+    </header>
+    <div class="content">
+        <h1 ng-bind="vm.title3"></h1>
+        <p>点击后退键，根据业务逻辑控制back到第一个页面，不是直接load到第一页面，主要是控制路由和切换效果</p>
+        <div class="content-block">
+            <p><a ng-click="goPage('#secondpage','check/tpl2.html')" class="button button-fill">跳转第二页</a></p>
+        </div>
+    </div>
+</div>

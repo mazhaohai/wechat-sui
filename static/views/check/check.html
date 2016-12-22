@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="utf-8">
+		<title>DEMO</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	</head>
+	<body ng-controller="CheckCtrl">
+		<div class="page-group">
+			<div class="page page-current" id="blankpage">
+				<!--这个page存在的目的是为了能够回退时捕获back事件，否则不能捕获，第一个业务逻辑页面后退不能关闭-->
+			</div>
+			<div class="page page-current" id="firstpage">
+			</div>
+			<div class="page" id='secondpage'>
+			</div>
+			<div class="page" id='thirdpage'>
+			</div>
+		</div>
+		<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+		<script type="text/javascript">
+			(function (window) {
+				var global = {
+					basePath: '/static/js/',
+					appPath: '/static/js/app/',
+					viewsPath: '/static/views/',
+				};
+				window.globalConfig = window.globalConfig || global;
+			})(window);
+			require([
+				globalConfig.basePath + 'config.js',
+				globalConfig.appPath + 'check/check.js'
+			], function() {
+				require(['check.module']);
+			});
+		</script>
+	</body>
+</html>
