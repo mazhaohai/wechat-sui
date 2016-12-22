@@ -99,8 +99,9 @@
 					return;
 				}
 				//根据业务逻辑跳转到哪个页面
-				if(state.pageId == "secondpage"&&fromState.pageId=="thirdpage"){
-					_goPage("#firstpage",'check/tpl1.html');
+				if (state.pageId == "secondpage" && fromState.pageId == "thirdpage") {
+                    //第三个页面直接跳转到第一个页面
+					_goPage("#firstpage",'');
 					return;
 				}
 				if (this._isTheSameDocument(state.url.full, fromState.url.full)) {
